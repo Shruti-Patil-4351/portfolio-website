@@ -4,6 +4,9 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: write   # REQUIRED TO PUSH TO GH-PAGES
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -15,4 +18,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./   # adjust if your build output is in a different folder
+          publish_dir: ./   # change if your output folder is different
